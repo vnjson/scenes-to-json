@@ -29,7 +29,6 @@ scenesToJson(__src, __dist, function(err, msg){
 
 ```
 __`input`__
-
 ```text
 scenes
 ├───start
@@ -45,7 +44,6 @@ scenes
 ```
 
 __`output`__
-
 ```text
 scenes
 └───en-US
