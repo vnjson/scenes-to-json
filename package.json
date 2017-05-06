@@ -1,0 +1,27 @@
+{
+  "name": "scenes-to-json",
+  "version": "0.1.7",
+  "description": "vnjson project scene to bundle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+      "js-yaml": "*",
+      "fs-extra": "*",
+      "complete-directory-tree": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnjson/scenes-to-json.git"
+  },
+  "keywords": [
+    "vnjson"
+  ],
+  "author": "Kasin Sergey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vnjson/scenes-to-json/issues"
+  },
+  "homepage": "https://github.com/vnjson/scenes-to-json#readme"
+}
