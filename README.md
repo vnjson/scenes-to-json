@@ -27,7 +27,7 @@ scenesToJson(__src, __dist, function(err, msg){
   console.log(msg);
 });
 
-
+```
 __`input`__
 
 ```text
@@ -42,7 +42,6 @@ scenes
 │   │   └───warlock.yaml    
 |   └───characters.yaml
 ├───lab
-
 ```
 
 __`output`__
