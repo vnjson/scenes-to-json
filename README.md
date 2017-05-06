@@ -30,7 +30,7 @@ scenesToJson(__src, __dist, function(err, msg){
 
 __`source directory scenes`__
 
-```plane_text
+```js
 scenes
 ├───start
 │   ├───assets
