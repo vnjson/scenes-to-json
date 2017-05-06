@@ -28,8 +28,31 @@ scenesToJson(__src, __dist, function(err, msg){
 });
 
 
+__`source directory scenes`__
+
+```plane_text
+scenes
+├───start
+│   ├───assets
+│   |   ├───background.png
+│   │   └───dialog-box.png
+|   ├───labels
+│   |   ├───entry.yaml
+│   │   ├───chapter1.yaml
+│   │   └───warlock.yaml    
+|   └───characters.yaml
+|
+├───lab
+
 ```
+__`chapter1.yaml`__
 
-
+```yaml
+- pr: Привет Алиса
+  scene: background
+  audio: maintheme1
+- al: Да уж, давненько не виделись.
+  jump: warlock.yaml
+```
 ## License
 > MIT License (MIT)
