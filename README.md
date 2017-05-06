@@ -28,9 +28,9 @@ scenesToJson(__src, __dist, function(err, msg){
 });
 
 
-__`source directory scenes`__
+__`input`__
 
-```js
+```text
 scenes
 ├───start
 │   ├───assets
@@ -41,18 +41,41 @@ scenes
 │   │   ├───chapter1.yaml
 │   │   └───warlock.yaml    
 |   └───characters.yaml
-|
 ├───lab
 
 ```
+
+__`output`__
+
+```text
+scenes
+└───en-US
+    ├───start.json
+    └───lab.json
+```
+
 __`chapter1.yaml`__
 
 ```yaml
 - pr: Привет Алиса
   scene: background
-  audio: maintheme1
 - al: Да уж, давненько не виделись.
-  jump: warlock.yaml
+  jump: warlock
 ```
+__`start.json`__
+```json
+{
+  "assets": [{},{}],
+  "characters": {},
+  "labels": {
+      "entry": [{"main-menu": {"scene": "background", "audio": "song1"}}],
+      "chapter1": [
+          {"pr": "Привет Алиса", "scene": "background"},
+          {"al": "Да уж, давненько не виделись.", "jump": "warlock"}
+      ]
+  }
+}
+```
+
 ## License
 > MIT License (MIT)
