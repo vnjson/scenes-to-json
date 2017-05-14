@@ -1,6 +1,6 @@
 {
   "name": "scenes-to-json",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "vnjson project scene to bundle",
   "main": "index.js",
   "scripts": {
