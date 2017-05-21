@@ -3,12 +3,23 @@
 
 ## Install
 
-```console
+```bash
+npm install -g scenes-to-json
+```
+or
+
+```bash
 npm install --save scenes-to-json
 ```
 
 ## Usage
 
+Cli version
+
+```bash
+scenestojson ./scenes ./dist
+```
+Program
 ```js
 const scenesToJson = require('scenes-to-json');
 

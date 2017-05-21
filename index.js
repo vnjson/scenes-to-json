@@ -5,23 +5,21 @@ const
 
 
 
-function sceneToJson(__src, __dist, notify){
+function scenesToJson(__src, __dist, notify){
 
 
-createScene(__src)
+createScene(__src, __dist)
       .then(function(scenesObj){
             addLabels(scenesObj, __src, __dist).then((data)=>{
                   notify(null, data);
              }).catch((e)=>{
                   notify(err);
-                  process.exit(0);
             });/*addLabels*/
       }).catch(function(err){
               notify(err);
-              process.exit(0);
       });/*createScene*/
  
 };/*sceneToJson*/
 
 
-module.exports = sceneToJson;
+module.exports = scenesToJson;

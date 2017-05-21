@@ -1,0 +1,6 @@
+pro:
+  name: Профессор
+  color: green
+al:
+  name: Алиса
+  color: red

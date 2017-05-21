@@ -1,15 +1,20 @@
 {
   "name": "scenes-to-json",
-  "version": "0.1.8",
+  "version": "0.2.4",
   "description": "vnjson project scene to bundle",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-      "js-yaml": "*",
-      "fs-extra": "*",
-      "complete-directory-tree": "*"
+    "complete-directory-tree": "*",
+    "fs-extra": "*",
+    "js-yaml": "*",
+    "normalize-path": "^2.1.1",
+    "pretty-bytes": "^4.0.2"
+  },
+  "bin": {
+    "scenestojson": "./bin/scenestojson"
   },
   "repository": {
     "type": "git",
