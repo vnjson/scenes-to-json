@@ -1,39 +1,4 @@
 {
-  "labels": {
-    "chapter1": [
-      {
-        "pr": "lab }}]  {{{Привет! Давненько не виделись",
-        "scene": "background",
-        "left": "right_ladya"
-      },
-      {
-        "al": "Да уж, давненько.",
-        "right": "lusil"
-      },
-      {
-        "al": "Лагдно пошли в лабараторию"
-      },
-      {
-        "jump": "chapter2"
-      }
-    ],
-    "chapter2": [
-      {
-        "al": "И как это понимать? Разве мы не должны позабо",
-        "scene": "bg"
-      },
-      {
-        "pr": "Где лежит та черта",
-        "left": "prof_norm"
-      },
-      {
-        "al": "Лагдно пошли в лабараторию"
-      },
-      {
-        "alert": "Game over!"
-      }
-    ]
-  },
   "assets": [
     {
       "name": "battle-field",
@@ -42,10 +7,37 @@
       "path": "dist/assets/battle-field.png"
     }
   ],
-  "characters": {
-    "lusi": {
-      "name": "Люсиль",
-      "color": "silver"
+  "chapter1": [
+    {
+      "pr": "lab }}]  {{{Привет! Давненько не виделись",
+      "scene": "background",
+      "left": "right_ladya"
+    },
+    {
+      "al": "Да уж, давненько.",
+      "right": "lusil"
+    },
+    {
+      "al": "Лагдно пошли в лабараторию"
+    },
+    {
+      "jump": "chapter2"
     }
-  }
+  ],
+  "chapter2": [
+    {
+      "al": "И как это понимать? Разве мы не должны позабо",
+      "scene": "bg"
+    },
+    {
+      "pr": "Где лежит та черта",
+      "left": "prof_norm"
+    },
+    {
+      "al": "Лагдно пошли в лабараторию"
+    },
+    {
+      "alert": "Game over!"
+    }
+  ]
 }
