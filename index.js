@@ -4,7 +4,6 @@ const
   addLabels                   = require('./lib/add-labels');
 
 
-
 function scenesToJson(__src, __dist, notify){
 
 

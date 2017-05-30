@@ -1,9 +1,28 @@
 #!/usr/bin/env node
 const { join } = require('path');
 const scenesToJson = require('../index');
+const wt  = require('wt');
 
 let src = process.argv[2];
 let dist = process.argv[3];
+let watch = process.argv[4];
+
+if (process.platform === "win32") {
+  var rl = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.on("SIGINT", function () {
+    process.emit("SIGINT");
+  });
+}
+
+process.on("SIGINT", function () {
+  //graceful shutdown
+  process.exit();
+});
+
 
 function notify(err){
   if(err){
@@ -14,3 +33,18 @@ function notify(err){
 };
 
 scenesToJson(src, dist, notify);
+
+if(watch==="true"){
+  var watcher = wt.watch(src);
+  watcher.on('all', function (info) {
+
+    scenesToJson(src, dist, function(err, data){
+      if(err){
+        console.error(err);
+      }
+      console.log(info.event+": "+info.path)
+    });
+    console.log('Press Ctrl+C for exit')
+  })
+
+}

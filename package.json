@@ -11,7 +11,8 @@
     "fs-extra": "*",
     "js-yaml": "*",
     "normalize-path": "^2.1.1",
-    "pretty-bytes": "^4.0.2"
+    "pretty-bytes": "^4.0.2",
+    "wt": "^1.1.1"
   },
   "bin": {
     "scenestojson": "./bin/scenestojson"
