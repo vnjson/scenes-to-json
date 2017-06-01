@@ -27,14 +27,22 @@ process.on("SIGINT", function () {
 function notify(err){
   if(err){
     console.error(err);
+    process.exit(0)
   }else{
     console.log('[ success ]');
+    process.exit(0)
   };
 };
 
-scenesToJson(src, dist, notify);
+
 
 if(watch==="true"){
+  scenesToJson(src, dist, function(err){
+    if(err){
+      console.error(err);
+    }
+    console.log('[ success ]')
+  });
   var watcher = wt.watch(src);
   watcher.on('all', function (info) {
 
@@ -47,4 +55,6 @@ if(watch==="true"){
     console.log('Press Ctrl+C for exit')
   })
 
-}
+}else{
+    scenesToJson(src, dist, notify);
+  }
