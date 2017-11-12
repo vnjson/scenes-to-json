@@ -24,14 +24,15 @@ Program
 const scenesToJson = require('scenes-to-json');
 
 /*
- * @param __src String
- * @param __dist String 
- * @notify Function 
+ * @param src String
+ * @param dist String 
+ * @param notify Function 
  */
-let __src = './src/scenes';
-let __dist = './build/local/game/scenes/en-US/';
+let local = 'en-US';
+let src = './src/scenes';
+let dist = `./build/html/game/scenes/${local}/`;
 
-scenesToJson(__src, __dist, function(err, msg){
+scenesToJson(src, dist, function(err, msg){
   if(err){
     throw new Error(err);
   }
@@ -45,21 +46,25 @@ scenes
 ├───start
 │   ├───assets
 │   |   ├───background.png
-│   │   └───dialog-box.png
-|   ├───labels
-│   |   ├───entry.yaml
-│   │   ├───chapter1.yaml
-│   │   └───warlock.yaml    
-|   └───characters.yaml
+│   │   └───audio1.mp3
+│   ├───entry.yaml
+│   ├───chapter1.yaml
+│   └───label2.yaml    
 ├───lab
 ```
 
 __`output`__
 ```text
-scenes
-└───en-US
-    ├───start.json
-    └───lab.json
+
+game
+├───scenes
+│   └───en-US
+│       ├───start.json
+│       └───lab.json
+└───assets
+    ├───background.png
+    └───audio1.mp3 
+   
 ```
 
 __`chapter1.yaml`__
@@ -74,14 +79,12 @@ __`start.json`__
 ```json
 {
   "assets": [{},{}],
-  "characters": {},
-  "labels": {
-      "entry": [{"main-menu": {"scene": "background", "audio": "song1"}}],
-      "chapter1": [
-          {"pr": "Привет Алиса", "scene": "background"},
-          {"al": "Да уж, давненько не виделись.", "jump": "warlock"}
-      ]
-  }
+  "entry": [{"main-menu": {"scene": "background", "audio": "song1"}}],
+  "chapter1": [
+      {"pr": "Привет Алиса", "scene": "background"},
+      {"al": "Да уж, давненько не виделись.", "jump": "warlock"}
+  ],
+  "label2": []
 }
 ```
 
