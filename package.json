@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/vnjson/scenes-to-json/issues"
   },
-  "homepage": "https://github.com/vnjson/scenes-to-json#readme"
+  "homepage": "https://github.com/vnjson/scenes-to-json#readme",
+  "devDependencies": {
+    "yaml-lint": "^1.0.0"
+  }
 }
