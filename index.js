@@ -1,15 +1,16 @@
 
 const 
+  vnjs                        = require('../vnjs'),
   createScene                 = require('./lib/create-scene'),
   addLabels                   = require('./lib/add-labels');
 
 
-function scenesToJson(__src, __dist, notify){
+function scenesToJson(dataParam){
+  const { src, dist, notify } = dataParam;
 
-
-createScene(__src, __dist)
+createScene(src, dist)
       .then(function(scenesObj){
-            addLabels(scenesObj, __src, __dist).then((data)=>{
+            addLabels(scenesObj, src, dist).then((data)=>{
                   notify(null, data);
              }).catch((e)=>{
                   notify(err);
@@ -21,4 +22,4 @@ createScene(__src, __dist)
 };/*sceneToJson*/
 
 
-module.exports = scenesToJson;
+vnjs.on('scenesToJson', scenesToJson);
