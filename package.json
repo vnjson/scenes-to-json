@@ -1,7 +1,7 @@
 {
   "name": "scenes-to-json",
-  "version": "0.3.1",
-  "description": "vnjson project scene to bundle",
+  "version": "0.3.3",
+  "description": "Vnjson scenes builder",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,9 +13,6 @@
     "normalize-path": "^2.1.1",
     "pretty-bytes": "^4.0.2",
     "wt": "^1.1.1"
-  },
-  "bin": {
-    "scenestojson": "./bin/scenestojson"
   },
   "repository": {
     "type": "git",
