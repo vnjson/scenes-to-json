@@ -1,6 +1,6 @@
 
 const 
-  vnjs                        = require('../vnjs'),
+  vnjs                        = require('../../vnjs'),
   createScene                 = require('./lib/create-scene'),
   addLabels                   = require('./lib/add-labels');
 
