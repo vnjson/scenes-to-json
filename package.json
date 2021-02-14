@@ -1,26 +1,24 @@
 {
   "name": "scenes-to-json",
-  "version": "0.3.3",
+  "version": "0.5.1",
   "description": "Vnjson scenes builder",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "complete-directory-tree": "*",
     "directory-tree": "^2.2.6",
-    "fs-extra": "*",
-    "js-yaml": "*",
-    "normalize-path": "^2.1.1",
-    "pretty-bytes": "^4.0.2",
-    "wt": "^1.1.1"
+    "js-yaml": "^4.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vnjson/scenes-to-json.git"
   },
   "keywords": [
-    "vnjson"
+    "vnjson",
+    "yaml",
+    "script",
+    "text quest"
   ],
   "author": "Kasin Sergey",
   "license": "MIT",
@@ -28,7 +26,5 @@
     "url": "https://github.com/vnjson/scenes-to-json/issues"
   },
   "homepage": "https://github.com/vnjson/scenes-to-json#readme",
-  "devDependencies": {
-    "yaml-lint": "^1.0.0"
-  }
+  "devDependencies": {}
 }
