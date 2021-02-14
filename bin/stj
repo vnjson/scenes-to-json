@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const
+	argv 										= require('minimist')(process.argv.slice(2)),
+	scenesToJson						= require('../index.js'),
+	{ join }                = require('path');
+
+
+const path = argv._;
+
+let src = join(process.cwd(), path[0] );
+let dist = join(process.cwd(), path[1] );
+
+scenesToJson(src, dist, (err, data)=>{
+  if(err){
+  	 console.dir(err.reason);
+  	 console.log('line', err.mark.line, 'column', err.mark.column)
+  	 console.log(err.mark.snippet)
+  }else{
+  	console.log('scenes build', data)
+  }
+
+
+}, argv.url);

@@ -1,7 +1,7 @@
 .gitignore
 
 node_modules/
-
+/example
 test/
 npm-debug.log
 

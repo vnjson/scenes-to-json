@@ -14,53 +14,52 @@ npm install --save scenes-to-json
 
 ## Usage
 
-Cli version
+> Console
 
 ```bash
-scenestojson ./scenes ./dist
+stj ./scenes ./dist
+stj ./src ./scenes --url ./scenes/assets/
 ```
-Program
+> Programmaticly
 ```js
 const scenesToJson = require('scenes-to-json');
+//JSON_SCHEMA
+let src = './example/scenes';
+let dist = './example/dist';
+var url = '/scenes/assets/';//path into scene.assets[{url:"/assets/"}] default /scenes/assets/
 
-/*
- * @param src String
- * @param dist String 
- * @param notify Function 
- */
-let local = 'en-US';
-let src = './src/scenes';
-let dist = `./build/html/game/scenes/${local}/`;
-
-scenesToJson(src, dist, function(err, msg){
+scenesToJson(src, dist, (err, data)=>{
   if(err){
-    throw new Error(err);
+     console.dir(err.reason);
+     console.log('line', err.mark.line, 'column', err.mark.column)
+     console.log(err.mark.snippet);
+  }else{
+    console.log('scenes build', data);
   }
-  console.log(msg);
-});
+
+}, url);
 
 ```
 __`input`__
 ```text
-scenes
+example/scenes
 ├───start
 │   ├───assets
 │   |   ├───background.png
 │   │   └───audio1.mp3
-│   ├───entry.yaml
+│   ├───some-label.yaml
 │   ├───chapter1.yaml
-│   └───label2.yaml    
+│   └───characters.yaml    
 ├───lab
 ```
 
 __`output`__
 ```text
 
-game
+example/dist
 ├───scenes
-│   └───en-US
-│       ├───start.json
-│       └───lab.json
+│   ├───start.json
+│   └───lab.json
 └───assets
     ├───background.png
     └───audio1.mp3 
@@ -75,11 +74,20 @@ __`chapter1.yaml`__
 - al: Да уж, давненько не виделись.
   jump: warlock
 ```
-__`start.json`__
+__`scene.json`__
 ```json
 {
-  "assets": [{},{}],
-  "entry": [{"main-menu": {"scene": "background", "audio": "song1"}}],
+  "assets": [
+    { "name": "imgName", "url": "/assets/imgName.png" }
+  ],
+  "label1": [
+    {
+      "main-menu": {
+        "scene": "background", 
+        "audio": "song1"
+      }
+    }
+  ],
   "chapter1": [
       {"pr": "Привет Алиса", "scene": "background"},
       {"al": "Да уж, давненько не виделись.", "jump": "warlock"}

@@ -8,8 +8,17 @@ const yamlConfig = {
 	schema:  yaml.JSON_SCHEMA
 }
 
-function scenesToJSON(__src, __dist, callback){
+
+
+
+function scenesToJSON(__src, __dist, callback, _assetsUrl){
+const assetsUrl = _assetsUrl||'/scenes/assets/';	
 const assetsDir = join(__dist, "/assets/");
+
+if(fs.existsSync(__dist)){
+	fs.rmdirSync(__dist, { recursive: true });
+}
+fs.mkdirSync(__dist);
 if(fs.existsSync(assetsDir)){
 	fs.rmdirSync(assetsDir, { recursive: true });
 }
@@ -22,7 +31,7 @@ try {
 const _scenes = scenesTree.map(scene=>{
 
 	var SCENE = new Object();
-					
+			SCENE.assets = new Array();		
 	scene.children.map(label=>{
 		let { type, name, path } = label;
 		let labelName = basename(name, '.yaml');
@@ -33,14 +42,14 @@ const _scenes = scenesTree.map(scene=>{
 						if (err) throw err;
 
 					})
-
-					SCENE.assets = [
-										{ 
-											name:  basename(asset.name, asset.extension),
-											url: '/assets/'+ asset.name
-										}
-									]
-					//console.log( )
+					let _asset = { 
+								name:  basename(asset.name, asset.extension),
+								url: assetsUrl + asset.name
+							}
+					SCENE.assets.push(_asset)
+									
+								
+				
 				})
 		}else{	
 			let yamlBody = fs.readFileSync( normalize(path), 'utf8');

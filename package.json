@@ -6,9 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "stj": "./bin/stj"
+  },
   "dependencies": {
     "directory-tree": "^2.2.6",
-    "js-yaml": "^4.0.0"
+    "js-yaml": "^4.0.0",
+    "minimist": "^1.2.5"
   },
   "repository": {
     "type": "git",
