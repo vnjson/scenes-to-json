@@ -5,9 +5,10 @@
   left: right_ladya
 - al: Да уж, давненько.
   right: lusil
-  menu: {
-      Погнали в лабараторию: lab/start,
-      Перейти к главе 2: chapter2
-  }
+  menu:
+    ?: Куда отправиться?
+    lab.start: Погнали в лабараторию
+    chapter2: Перейти к главе 2
+
 - al: Лагдно пошли в лабараторию
 - jump: chapter2

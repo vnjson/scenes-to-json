@@ -2,14 +2,12 @@
   "assets": [
     {
       "name": "battle-field",
-      "size": "68 kB",
-      "extension": ".png",
-      "path": "dist/assets/battle-field.png"
+      "url": "/assets/battle-field.png"
     }
   ],
   "chapter1": [
     {
-      "pr": "lab }}]  {{{Привет! Давненько не виделись",
+      "pr": "Привет! Давненько не виделись",
       "scene": "background",
       "left": "right_ladya"
     },
@@ -38,6 +36,20 @@
     },
     {
       "alert": "Game over!"
+    }
+  ],
+  "characters": [
+    {
+      "name": "al",
+      "text": "Alice",
+      "age": 17,
+      "color": "azure"
+    },
+    {
+      "name": "j",
+      "text": "John",
+      "age": 21,
+      "color": "red"
     }
   ]
 }

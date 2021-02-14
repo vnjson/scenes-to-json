@@ -2,9 +2,7 @@
   "assets": [
     {
       "name": "about",
-      "size": "9.84 kB",
-      "extension": ".png",
-      "path": "dist/assets/about.png"
+      "url": "/assets/about.png"
     }
   ],
   "chapter1": [
@@ -17,8 +15,9 @@
       "al": "Да уж, давненько.",
       "right": "lusil",
       "menu": {
-        "Погнали в лабараторию": "lab/start",
-        "Перейти к главе 2": "chapter2"
+        "?": "Куда отправиться?",
+        "lab.start": "Погнали в лабараторию",
+        "chapter2": "Перейти к главе 2"
       }
     },
     {
@@ -57,7 +56,7 @@
       "al": "Ладно проехали старый маразматик"
     },
     {
-      "jump": "lab/chapter1"
+      "jump": "lab.chapter1"
     }
   ]
 }

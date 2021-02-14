@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "complete-directory-tree": "*",
+    "directory-tree": "^2.2.6",
     "fs-extra": "*",
     "js-yaml": "*",
     "normalize-path": "^2.1.1",

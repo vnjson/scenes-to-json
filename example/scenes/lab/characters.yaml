@@ -1,0 +1,9 @@
+- name: al
+  text: Alice
+  age: 17
+  color: azure
+
+- name: j
+  text: John
+  age: 21
+  color: red

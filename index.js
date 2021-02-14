@@ -1,25 +1,17 @@
 
-const 
-  vnjs                        = require('../../vnjs'),
-  createScene                 = require('./lib/create-scene'),
-  addLabels                   = require('./lib/add-labels');
 
+const { join } = require('path');
+const scenesToJson = require('./lib/scenes-to-json')
 
-function scenesToJson(dataParam){
-  const { src, dist, notify } = dataParam;
+let __src = join(__dirname, 'example/scenes');
+let __dist = join(__dirname, 'example/dist');
 
-createScene(src, dist)
-      .then(function(scenesObj){
-            addLabels(scenesObj, src, dist).then((data)=>{
-                  notify(null, data);
-             }).catch((e)=>{
-                  notify(err);
-            });/*addLabels*/
-      }).catch(function(err){
-              notify(err);
-      });/*createScene*/
- 
-};/*sceneToJson*/
+scenesToJson(__src, __dist, (err, data)=>{
+  if(err) throw new Error(err);
+ // console.log(data)
+  console.log('Сцены собраны')
+});
 
-
-vnjs.on('scenesToJson', scenesToJson);
+/*
+      INIT.=> boilerplate
+ */
