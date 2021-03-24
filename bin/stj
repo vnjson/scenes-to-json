@@ -17,7 +17,7 @@ scenesToJson(src, dist, (err, data)=>{
   	 console.log('line', err.mark.line, 'column', err.mark.column)
   	 console.log(err.mark.snippet)
   }else{
-  	console.log('scenes build', data)
+  	console.log('[ scenes build ]')
   }
 
 

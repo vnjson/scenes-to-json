@@ -1,0 +1,11 @@
+name: App
+version: 0.0.1
+entry: start.chapter1
+author: bakakasin@gmail.com
+debug: false
+mode: all #once #Динамически подгружает assets
+keywords: 
+   - vnjson
+   - simple example
+   - Vnjson Script
+   - text quest

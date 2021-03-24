@@ -2,12 +2,12 @@
   "assets": [
     {
       "name": "about",
-      "url": "/assets/about.png"
+      "url": "/scenes/assets/about.png"
     }
   ],
   "chapter1": [
     {
-      "pr": "fПривет! Давненько не виделись",
+      "pr": "Привет! Давненько не виделись",
       "scene": "background",
       "left": "right_ladya"
     },

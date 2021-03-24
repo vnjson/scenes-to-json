@@ -2,7 +2,7 @@
   "assets": [
     {
       "name": "battle-field",
-      "url": "/assets/battle-field.png"
+      "url": "/scenes/assets/battle-field.png"
     }
   ],
   "chapter1": [
@@ -36,20 +36,6 @@
     },
     {
       "alert": "Game over!"
-    }
-  ],
-  "characters": [
-    {
-      "name": "al",
-      "text": "Alice",
-      "age": 17,
-      "color": "azure"
-    },
-    {
-      "name": "j",
-      "text": "John",
-      "age": 21,
-      "color": "red"
     }
   ]
 }
