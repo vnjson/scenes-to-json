@@ -1,7 +1,7 @@
 const
 	dirTree          				= require('directory-tree'),
 	yaml             				= require('js-yaml'),
-	fs                      = require('fs'),
+	fs                      = require('fs-extra'),
 	{ join, normalize, basename } = require('path');
 
 const yamlConfig = {
@@ -41,80 +41,88 @@ function addFilesToVNJSON (src, scene){
 }
 
 
-function scenesToJSON(src, dist, callback, _assetsUrl){
-const assetsUrl = _assetsUrl||'/scenes/assets/';	
-const assetsDir = join(dist, "/assets/");
+function scenesToJSON(src, dist, callback, assetsURL='./scenes'){
 
-if(fs.existsSync(dist)){
-	fs.rmdirSync(dist, { recursive: true });
-}
-fs.mkdirSync(dist);
-if(fs.existsSync(assetsDir)){
-	fs.rmdirSync(assetsDir, { recursive: true });
-}
-fs.mkdirSync(assetsDir);
-
-
+	fs.emptyDirSync(dist)	
 
 /*
- * Root
+ * get Root
  */
 const $root = dirTree(src).children;
-
+/**
+ * walk dir /src
+ */
 try {
 
 const _scenes = $root.map(scene=>{
 
-	/**
-	 * package.yaml
-	 */
+
 	if(scene.type==='file'){
+			/**
+	 			* rootFiles.yaml
+	 			*/
 				addFilesToVNJSON(src, scene)
 	}
 	else if(scene.type==='directory'){
+		/**
+		 * rootDirectories/
+		 */
+		
+		//create scene body
 	var sceneBody = new Object();
 			sceneBody.assets = new Array();		
+		//walk scene dir
 	scene.children.map(label=>{
-		let { type, name, path } = label;
-		let labelName = basename(name, '.yaml');
+
+
 		/**
-		 * /assets
+		 * label.yaml
 		 */
-		if(type=='directory'){
+		if(label.type==='file'){
 
+			let yamlBody = fs.readFileSync( normalize(label.path), 'utf8');
+
+			sceneBody[getFileName(label)] = yaml.load(yamlBody, yamlConfig);
+		}
+		/**
+		 * Assets
+		 */
+		else if(label.type==='directory'){
+				/**
+				 * walk dir /assets
+				 */
 				label.children.map(asset=>{
-					fs.copyFile(asset.path, join(dist, "/assets/", asset.name), (err)=>{
-						if (err) throw err;
-
-					})
-					let _asset = { 
-								name:  basename(asset.name, asset.extension),
-								url: assetsUrl + asset.name
-							}
-					sceneBody.assets.push(_asset)
-									
-								
-				
+					try{
+						fs.copySync(asset.path, join(dist, "/assets/", asset.name))
+					
+						let assetBody = { 
+									name:  basename(asset.name, asset.extension),
+									url: `${assetsURL}/assets/${asset.name}`
+								}
+						sceneBody.assets.push(assetBody)				
+					}
+					catch (err){
+						throw err;
+					}
 				})
-		}else{
-			/**
-			 * label.yaml
-			 */
-			let yamlBody = fs.readFileSync( normalize(path), 'utf8');
-
-			sceneBody[labelName] = yaml.load(yamlBody, yamlConfig);
-		};
+		}
 	});//sceneItem
-	//write SCENE 
-	let pathToFile = join(dist, `${scene.name}.json`);
-	fs.writeFileSync(pathToFile, JSON.stringify(sceneBody, null, 2));
-		
+
+	/**
+	 * add current scene to TREE
+	 */
+
 	VNJSON.TREE[scene.name] = sceneBody;
 
 	}
 });
 
-
+/**
+ * write VNJSON to vn.json
+ */
+let pathToFile = join(dist, 'vn.json');
+fs.writeFileSync(pathToFile, JSON.stringify(VNJSON, null, 2));
+		
 console.log(VNJSON)
 
 callback(null);
@@ -126,16 +134,6 @@ catch (err){
 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

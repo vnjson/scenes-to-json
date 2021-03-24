@@ -1,0 +1,133 @@
+{
+  "name": "App",
+  "version": "0.0.1",
+  "entry": "start.chapter1",
+  "author": "bakakasin@gmail.com",
+  "debug": true,
+  "mode": "all",
+  "keywords": [
+    "vnjson",
+    "simple example",
+    "Vnjson Script",
+    "text quest"
+  ],
+  "TREE": {
+    "characters": [
+      {
+        "name": "al",
+        "text": "Alice",
+        "age": 17,
+        "color": "azure"
+      },
+      {
+        "name": "j",
+        "text": "John",
+        "age": 21,
+        "color": "red"
+      }
+    ],
+    "lab": {
+      "assets": [
+        {
+          "name": "battle-field",
+          "url": "./scenes/assets/battle-field.png"
+        }
+      ],
+      "chapter1": [
+        {
+          "pr": "Привет! Давненько не виделись",
+          "scene": "background",
+          "left": "right_ladya"
+        },
+        {
+          "al": "Да уж, давненько.",
+          "right": "lusil"
+        },
+        {
+          "al": "Лагдно пошли в лабараторию"
+        },
+        {
+          "jump": "chapter2"
+        }
+      ],
+      "chapter2": [
+        {
+          "al": "И как это понимать? Разве мы не должны позабо",
+          "scene": "bg"
+        },
+        {
+          "pr": "Где лежит та черта",
+          "left": "prof_norm"
+        },
+        {
+          "al": "Лагдно пошли в лабараторию"
+        },
+        {
+          "alert": "Game over!"
+        }
+      ]
+    },
+    "start": {
+      "assets": [
+        {
+          "name": "about",
+          "url": "./scenes/assets/about.png"
+        }
+      ],
+      "chapter1": [
+        {
+          "pr": "Привет! Давненько не виделись",
+          "scene": "background",
+          "left": "right_ladya"
+        },
+        {
+          "al": "Да уж, давненько.",
+          "right": "lusil",
+          "menu": {
+            "?": "Куда отправиться?",
+            "lab.start": "Погнали в лабараторию",
+            "chapter2": "Перейти к главе 2"
+          }
+        },
+        {
+          "al": "Лагдно пошли в лабараторию"
+        },
+        {
+          "jump": "chapter2"
+        }
+      ],
+      "chapter2": [
+        {
+          "al": "chapy[ 2 ] И как это понимать? Разве мы не должны позабо",
+          "scene": "bg"
+        },
+        {
+          "pr": "Где лежит та черта",
+          "left": "prof_norm"
+        },
+        {
+          "al": "Лагдно пошли в лабараторию"
+        },
+        {
+          "jump": "chapter3"
+        }
+      ],
+      "chapter3": [
+        {
+          "al": "chapy[ 3 ] Мы должны пойти дальше и решить наши разгногласия",
+          "scene": "bg"
+        },
+        {
+          "pr": "Я давно об этом говорил, теперь ты решила пойти на это",
+          "left": "prof_norm"
+        },
+        {
+          "al": "Ладно проехали старый маразматик"
+        },
+        {
+          "jump": "lab.chapter1"
+        }
+      ]
+    }
+  }
+}

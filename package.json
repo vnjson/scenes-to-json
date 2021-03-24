@@ -1,16 +1,14 @@
 {
   "name": "scenes-to-json",
-  "version": "0.5.1",
+  "version": "0.6.2",
   "description": "Vnjson scenes builder",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "bin": {
     "stj": "./bin/stj"
   },
   "dependencies": {
     "directory-tree": "^2.2.6",
+    "fs-extra": "^9.1.0",
     "js-yaml": "^4.0.0",
     "minimist": "^1.2.5"
   },
@@ -19,16 +17,15 @@
     "url": "git+https://github.com/vnjson/scenes-to-json.git"
   },
   "keywords": [
-    "vnjson",
-    "yaml",
-    "script",
-    "text quest"
+    "Vnjson Script",
+    "Visual Novel",
+    "Text quest",
+    "Bot messanger"
   ],
   "author": "Kasin Sergey",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vnjson/scenes-to-json/issues"
   },
-  "homepage": "https://github.com/vnjson/scenes-to-json#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/vnjson/scenes-to-json#readme"
 }
