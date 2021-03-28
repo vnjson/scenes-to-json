@@ -123,8 +123,6 @@ const _scenes = $root.map(scene=>{
 let pathToFile = join(dist, 'vn.json');
 fs.writeFileSync(pathToFile, JSON.stringify(VNJSON, null, 2));
 		
-console.log(VNJSON)
-
 callback(null);
 }
 catch (err){
