@@ -1,7 +1,7 @@
 {
   "name": "scenes-to-json",
-  "version": "0.7.0 ",
-  "description": "Vnjson scenes builder",
+  "version": "0.7.0",
+  "description": "Translation Vnjson scenes to json bundle",
   "main": "index.js",
   "bin": {
     "stj": "./bin/stj"
