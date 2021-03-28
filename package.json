@@ -1,6 +1,6 @@
 {
   "name": "scenes-to-json",
-  "version": "0.6.2",
+  "version": "0.7.0 ",
   "description": "Vnjson scenes builder",
   "main": "index.js",
   "bin": {

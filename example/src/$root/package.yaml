@@ -1,0 +1,6 @@
+name: Космические корсары
+version: 0.2.1
+debug: true
+mode: all #once
+entry: volume_1.chapter_1
+

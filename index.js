@@ -8,73 +8,30 @@ const yamlConfig = {
 	schema:  yaml.JSON_SCHEMA
 }
 
-var VNJSON = { TREE: {} };
+var VNJSON = {};
 
 function getFileName(scene){
 	return basename(scene.name, scene.extension)
 }
 
-function addFilesToVNJSON (src, scene){
-
-	/**
-		* package.yaml
-		*/
-	if(getFileName(scene)==='package'){
-		let yamlBody = fs.readFileSync( join(src, scene.name), 'utf8');
-
-  	let packageBody = yaml.load(yamlBody, yamlConfig);
-
-		VNJSON = Object.assign(packageBody, VNJSON)
-		
-	}
-		/**
-		* characters.yaml
-		*/
-	else if(getFileName(scene)==='characters'){
-		let yamlBody = fs.readFileSync( join(src, scene.name), 'utf8');
-
-  	let charactersBody = yaml.load(yamlBody, yamlConfig);
-		VNJSON.TREE.characters = charactersBody;
-
-	}
-
-}
-
 
 function scenesToJSON(src, dist, callback, assetsURL='./scenes'){
-
-	fs.emptyDirSync(dist)	
-
-/*
- * get Root
- */
-const $root = dirTree(src).children;
+	
+fs.emptyDirSync(dist)	
 /**
  * walk dir /src
  */
 try {
 
-const _scenes = $root.map(scene=>{
+const _scenes = dirTree(src).children.map(scene=>{
 
 
-	if(scene.type==='file'){
-			/**
-	 			* rootFiles.yaml
-	 			*/
-				addFilesToVNJSON(src, scene)
-	}
-	else if(scene.type==='directory'){
-		/**
-		 * rootDirectories/
-		 */
-		
+	if(scene.type==='directory'){
 		//create scene body
 	var sceneBody = new Object();
 			sceneBody.assets = new Array();		
 		//walk scene dir
 	scene.children.map(label=>{
-
-
 		/**
 		 * label.yaml
 		 */
@@ -112,7 +69,7 @@ const _scenes = $root.map(scene=>{
 	 * add current scene to TREE
 	 */
 
-	VNJSON.TREE[scene.name] = sceneBody;
+	VNJSON[scene.name] = sceneBody;
 
 	}
 });

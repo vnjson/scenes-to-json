@@ -1,8 +1,0 @@
-- pr:  Привет! Давненько не виделись
-  scene: background
-  left: right_ladya
-- al: Да уж, давненько.
-  right: lusil
-
-- al: Лагдно пошли в лабараторию
-- jump: chapter2
