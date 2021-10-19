@@ -50,18 +50,37 @@ const _scenes = dirTree(src).children.map(scene=>{
 				 */
 				label.children.map(asset=>{
 					try{
-						fs.copySync(asset.path, join(dist, "/assets/", asset.name))
+						/*ASSETS*/
+						if(label.name==="assets"){
+								fs.copySync(asset.path, join(dist, "/assets/", asset.name))
 					
-						let assetBody = { 
-									name:  basename(asset.name, asset.extension),
-									url: `${assetsURL}/assets/${asset.name}`
-								}
-						sceneBody.assets.push(assetBody)				
+								let assetBody = { 
+											name:  basename(asset.name, asset.extension),
+											url: `${assetsURL}/assets/${asset.name}`
+										}
+								sceneBody.assets.push(assetBody)
+						}
+						if( label.name==="data" ){
+							label.children.map(child=>{
+								sceneBody.data = sceneBody.data||{}
+								sceneBody.data[child.name] = JSON.stringify(fs.readFileSync(child.path, "utf-8"), null, 4 )
+							})
+						}
+						if( /label/i.test(label.name) ){
+								label.children.map(child=>{
+											if(child.type==='file'){
+												let yamlBody = fs.readFileSync( normalize(child.path), 'utf8');
+												sceneBody[label.name+"__"+getFileName(child)] = yaml.load(yamlBody, yamlConfig);
+											}
+								})
+							
+						}
 					}
 					catch (err){
 						throw err;
 					}
-				})
+				});
+				
 		}
 	});//sceneItem
 

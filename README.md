@@ -55,8 +55,18 @@ __`input`__
 │   │   ├───background.png
 │   │   └───audio1.mp3
 │   ├───chapter_2.yaml
-│   └───chapter_1.yaml
+│   └───$init.yaml
 ├───volume_2
+│   ├───assets
+│   │   └───char1.png
+│   ├───data
+│   │   ├───somescritp.py //plane_text to json
+│   │   └───somefile.txt
+│   ├───label_prefix
+│   │   ├───label_1.yaml
+│   │   └───label_2.yaml
+│   │
+│   └───$init.yaml
 ```
 
 __`output`__

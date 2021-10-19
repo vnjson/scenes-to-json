@@ -1,6 +1,6 @@
 {
   "name": "scenes-to-json",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Translation Vnjson scenes to json bundle",
   "main": "index.js",
   "bin": {
