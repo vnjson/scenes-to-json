@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-const
-	argv 										= require('minimist')(process.argv.slice(2)),
-	scenesToJson						= require('../index.js'),
-	{ join }                = require('path');
-
-
-const path = argv._;
-
-let src = join(process.cwd(), path[0] );
-let dist = join(process.cwd(), path[1] );
+const	scenesToJson = require('../index.js');
+const	{ join } = require('path');
+                   
+const path  = process.argv.slice(2);
+if(path.length===0){
+  console.log('\x1b[35mRequire arguments')
+  return
+}
+const src = join(process.cwd(), path[0] );
+const dist = join(process.cwd(), path[1] );
 
 scenesToJson(src, dist, (err, sceneName, labelName)=>{
   if(err){
@@ -24,4 +24,4 @@ scenesToJson(src, dist, (err, sceneName, labelName)=>{
   }
 
 
-}, argv.url);
+}, path[2]);

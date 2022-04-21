@@ -9,8 +9,7 @@
   "dependencies": {
     "directory-tree": "^2.2.6",
     "fs-extra": "^9.1.0",
-    "js-yaml": "^4.0.0",
-    "minimist": "^1.2.5"
+    "js-yaml": "^4.0.0"
   },
   "repository": {
     "type": "git",
