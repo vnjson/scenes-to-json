@@ -1,9 +1,0 @@
-  
-#keyWord: <div class="user-item"></div>
-
-chip: '<div class="user-item zmdi zmdi-card-sim"></div>'
-clip: '<div class="user-item zmdi zmdi-attachment" ></div>'
-card: '<div class="user-item zmdi zmdi-card"></div>'
-scissors: '<div class="user-item zmdi zmdi-scissors"></div>'
-plaster: '<div class="user-item zmdi zmdi-plaster"></div>'
-wrench: '<div class="user-item zmdi zmdi-wrench"></div>'

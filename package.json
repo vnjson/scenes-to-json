@@ -1,7 +1,7 @@
 {
   "name": "scenes-to-json",
-  "version": "0.8.0",
-  "description": "Translation Vnjson scenes to json bundle",
+  "version": "0.8.4",
+  "description": "Transformation Vnjson scenes to json bundle",
   "main": "index.js",
   "bin": {
     "stj": "./bin/stj"
@@ -17,12 +17,11 @@
     "url": "git+https://github.com/vnjson/scenes-to-json.git"
   },
   "keywords": [
-    "Vnjson Script",
+    "Vnjson",
     "Visual Novel",
-    "Text quest",
-    "Bot messanger"
+    "Text quest"
   ],
-  "author": "Kasin Sergey",
+  "author": "bakakasin@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vnjson/scenes-to-json/issues"

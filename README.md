@@ -2,14 +2,15 @@
 > Translation Vnjson scenes to json bundle
 
 ## Install
+__`global`__
 
 ```bash
 npm install -g scenes-to-json
 ```
-or
+__`local`__
 
 ```bash
-npm install --save scenes-to-json
+npm install scenes-to-json
 ```
 
 ## Usage
@@ -35,14 +36,17 @@ var assetsURL = './dist'; //default = ./scenes
   }
 }
  */
-scenesToJson(src, dist, (err, data)=>{
+scenesToJson(src, dist, (err, sceneName, labelName)=>{
   if(err){
-     console.dir(err.reason);
-     console.log('line', err.mark.line, 'column', err.mark.column)
-     console.log(err.mark.snippet);
-  }else{
-    console.log('scenes build');
+     console.log("\x1b[32m"+err.reason);
+     console.log("\x1b[31m"+sceneName+'/'+ labelName+"\x1b[0m"+"\x1b[33m");
+     console.log('\x1b[36mline', err.mark.line, 'column', err.mark.column);
+     console.log("\x1b[33m"+err.mark.snippet);
   }
+  else{
+    console.log('\x1b[35m [ \x1b[36m scenes build \x1b[35m ]');
+  }
+
 
 }, assetsURL);
 
