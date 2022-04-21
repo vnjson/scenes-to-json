@@ -16,7 +16,10 @@ function getFileName(scene){
 
 
 function scenesToJSON(src, dist, callback, assetsURL='scenes'){
-	
+/**
+ * remove prev build
+ */
+fs.emptyDirSync(dist);
 /**
  * walk dir /src
  */
@@ -97,10 +100,7 @@ const _scenes = dirTree(src).children.map(scene=>{
 
 	}
 });
-	/**
-	 * remove prev build
-	 */
-	fs.emptyDirSync(dist);
+
 	/**
 	 * write VNJSON to vn.json
 	 */
